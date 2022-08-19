@@ -11,8 +11,17 @@ const dashboardRouter = require('./app/dashboard/router');
 const categoryRouter = require('./app/category/router');
 const nominalRouter = require('./app/nominal/router');
 const voucherRouter = require('./app/voucher/router');
+const bankRouter = require('./app/bank/router');
+const paymentRouter = require('./app/payment/router');
+const usersRouter = require('./app/users/router');
+const transactionRouter = require('./app/transaction/router');
+const playerRouter = require('./app/player/router');
+const authRouter = require('./app/auth/router');
+const cors = require('cors');
 
 const app = express();
+const URL = '/api/v1'; 
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,11 +42,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/adminlte', express.static(path.join(__dirname, '/node_modules/admin-lte/')));
 
-app.use('/', dashboardRouter);
+app.use('/', usersRouter);
+app.use('/dashboard', dashboardRouter);
 app.use('/category', categoryRouter);
 app.use('/nominal', nominalRouter);
 app.use('/voucher', voucherRouter);
+app.use('/bank', bankRouter);
+app.use('/payment', paymentRouter);
+app.use('/transaction', transactionRouter);
 
+//api router
+app.use(`${URL}/players`, playerRouter);
+app.use(`${URL}/auth`, authRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
