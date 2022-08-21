@@ -16,3 +16,4 @@ Dependencies yang digunakan aplikasi ini diantara lain:
     - morgan
     - multer
     - connect-flash
+    - env-cmd
