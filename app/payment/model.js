@@ -10,10 +10,10 @@ let paymentSchema = mongoose.Schema({
         enum : ['Y', 'N'],
         default : 'Y'
     },
-    banks : {
+    banks : [{
         type : mongoose.Schema.Types.ObjectId,
         ref : 'Bank'
-    }
+    }]
     
 }, { timestamps: true });
 

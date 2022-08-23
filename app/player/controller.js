@@ -36,7 +36,8 @@ module.exports = {
                 .populate('nominals')
                 .populate('user', '_id name phoneNumber');
 
-            const payment = await Payment.find();
+            const payment = await Payment.find()
+            .populate('banks');
 
             if(!detail) {
                 res.status(500).json({ message: err.message || 'Voucher game tidak ditemukan'});
