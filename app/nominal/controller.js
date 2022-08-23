@@ -80,7 +80,7 @@ module.exports = {
         } catch (err) {
             req.flash('alertMessage', `${err.message}`);
             req.flash('alertStatus', `danger`);
-            req.redirect('/nominal');
+            res.redirect('/nominal');
         }
     },
     actionDelete : async(req, res) => {
@@ -98,7 +98,7 @@ module.exports = {
         } catch (err) {
             req.flash('alertMessage', `${err.message}`);
             req.flash('alertStatus', `danger`);
-            req.redirect('/nominal');
+            res.redirect('/nominal');
         }
     }
 }

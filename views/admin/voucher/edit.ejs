@@ -64,7 +64,7 @@
                           >
                             <% nominal.forEach(nominal => { %>
                                 <option value="<%= nominal._id %>"
-                                    <% voucher.nominal.forEach(voucherNominal => { %>
+                                    <% voucher.nominals.forEach(voucherNominal => { %>
                                         <% if(nominal._id.toString() === voucherNominal._id.toString()) { %>
                                             selected
                                         <% } %>
