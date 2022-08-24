@@ -240,7 +240,7 @@ module.exports = {
                 phoneNumber : req.player.phoneNumber,
             }
 
-            res.status(200).json({ data : player})
+            res.status(200).json({ data : { player } })
 
         } catch (err) {
             res.status(500).json({ message: err.message || 'Terjadi kesalahan pada server'});
