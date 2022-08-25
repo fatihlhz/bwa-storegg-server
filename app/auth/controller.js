@@ -67,17 +67,18 @@ module.exports = {
     signin : async (req, res, next) => {
         const { email, password } = req.body;
 
-        Player.findOne({ email : email }).then((players) => {
-            if (players) {
-                const checkPassword = bcrypt.compareSync(password, players.password);
+        Player.findOne({ email : email }).then((player) => {
+            if (player) {
+                const checkPassword = bcrypt.compareSync(password, player.password);
                 if(checkPassword) {
                     const token = jwt.sign({
                         player : {
-                            id : players.id,
-                            email : players.email,
-                            username : players.username,
-                            name : players.name,
-                            avatar : players.avatar
+                            id : player.id,
+                            email : player.email,
+                            username : player.username,
+                            name : player.name,
+                            phoneNumber : player.phoneNumber,
+                            avatar : player.avatar
                         }
                     }, config.jwtKey)
 
