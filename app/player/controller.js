@@ -42,6 +42,10 @@ module.exports = {
                 res.status(500).json({ message: err.message || 'Voucher game tidak ditemukan'});
             }
             
+            if(!payment) {
+                res.status(500).json({ message: err.message || 'Voucher game tidak ditemukan'});
+            }
+
             res.status(200).json({ 
                 data : {
                     detail, 
@@ -240,7 +244,7 @@ module.exports = {
                 phoneNumber : req.player.phoneNumber,
             }
 
-            res.status(200).json({ data : { player } })
+            res.status(200).json({ data : player })
 
         } catch (err) {
             res.status(500).json({ message: err.message || 'Terjadi kesalahan pada server'});

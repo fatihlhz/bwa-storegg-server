@@ -72,12 +72,14 @@ module.exports = {
                 const checkPassword = bcrypt.compareSync(password, player.password);
                 if(checkPassword) {
                     const token = jwt.sign({
-                        id : player.id,
-                        email : player.email,
-                        username : player.username,
-                        name : player.name,
-                        phoneNumber : player.phoneNumber,
-                        avatar : player.avatar
+                        player : {
+                            id : player.id,
+                            email : player.email,
+                            username : player.username,
+                            name : player.name,
+                            phoneNumber : player.phoneNumber,
+                            avatar : player.avatar
+                        }
                     }, config.jwtKey)
 
                     res.status(200).json({
