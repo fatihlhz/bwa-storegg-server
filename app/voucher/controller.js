@@ -107,8 +107,8 @@ module.exports = {
             const category = await Category.find();
             const nominal = await Nominal.find();
             const voucher = await Voucher.findOne({ _id : id })
-            .populate('category')
-            .populate('nominals');
+                .populate('category')
+                .populate('nominals');
 
             res.render('admin/voucher/edit', {
                 voucher,

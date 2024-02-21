@@ -53,6 +53,7 @@ module.exports = {
             const { id } = req.params;
 
             const nominal = await Nominal.findOne({ _id : id });
+
             res.render('admin/nominal/edit', {
                 nominal,
                 name: req.session.user.name,

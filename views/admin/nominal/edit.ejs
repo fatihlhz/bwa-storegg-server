@@ -1,6 +1,6 @@
-<%- include ../../partials/header.ejs %>
-<%- include ../../partials/navbar.ejs %>
-<%- include ../../partials/sidebar.ejs %>
+<%- include ('../../partials/header.ejs') %>
+<%- include ('../../partials/navbar.ejs') %>
+<%- include ('../../partials/sidebar.ejs') %>
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -39,17 +39,17 @@
                       <select class="form-control select2" style="width: 100%;" name="coinName" required>
                         <option selected="selected">Pilih Koin</option>
                         <option value="Gold"
-                        <% if(nominal.coinName === "Gold") { %>
+                        <% if(nominal.coinName.toUpperCase() === "GOLD") { %>
                             selected
                         <% } %>
                         >Gold</option>
                         <option value="Diamond"
-                        <% if(nominal.coinName === "Diamond") { %>
+                        <% if(nominal.coinName.toUpperCase() === "DIAMOND") { %>
                             selected
                         <% } %>
                         >Diamond</option>
                         <option value="Jewel"
-                        <% if(nominal.coinName === "Jewel") { %>
+                        <% if(nominal.coinName.toUpperCase() === "JEWEL") { %>
                             selected
                         <% } %>
                         >Jewel</option>
@@ -81,5 +81,5 @@
     <!-- /.content -->
   </div>
 
-  <%- include ../../partials/footer.ejs %>
-  <%- include ../../partials/js.ejs %>
+  <%- include ('../../partials/footer.ejs') %>
+  <%- include ('../../partials/js.ejs') %>
